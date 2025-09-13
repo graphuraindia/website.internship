@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <title>Application Form- Graphura India Private Limited</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+
+    <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary-green: #10b981;
+      --primary-green-dark: #059669;
+      --primary-green-light: #34d399;
+      --secondary-green: #6ee7b7;
+      --accent-green: #a7f3d0;
+      --success-green: #065f46;
+      --bg-green: #ecfdf5;
+      --border-green: #d1fae5;
+      --text-dark: #1f2937;
+      --text-muted: #6b7280;
+      --text-light: #9ca3af;
+      --white: #ffffff;
+      --shadow-light: rgba(16, 185, 129, 0.1);
+      --shadow-medium: rgba(16, 185, 129, 0.2);
+      --gradient-primary: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
+      --gradient-bg: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: var(--gradient-bg);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(52, 211, 153, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(167, 243, 208, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border-green);
+      border-radius: 24px;
+      box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04),
+        0 0 0 1px var(--shadow-light);
+      padding: 3rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: var(--gradient-primary);
+    }
+    
+    .header-section {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    
+    .form-title {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    
+    .form-subtitle {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+    
+    .icon-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 25px var(--shadow-medium);
+    }
+    
+    .icon-badge i {
+      font-size: 2rem;
+      color: var(--white);
+    }
+    
+    .form-section {
+      margin-bottom: 2rem;
+    }
+    
+    .section-title {
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent-green);
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: var(--primary-green);
+    }
+    
+    .form-label {
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .form-label i {
+      color: var(--primary-green);
+      font-size: 1rem;
+    }
+    
+    .form-control, .form-select {
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 0.875rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      background-color: var(--white);
+      color: var(--text-dark);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form-control:focus, .form-select:focus {
+      border-color: var(--primary-green);
+      box-shadow: 
+        0 0 0 3px var(--shadow-light),
+        0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      background-color: var(--white);
+      transform: translateY(-1px);
+    }
+    
+    .form-control.is-invalid, .form-select.is-invalid {
+      border-color: #ef4444;
+      background-color: #fef2f2;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+    
+    .form-control.is-valid, .form-select.is-valid {
+      border-color: var(--primary-green);
+      background-color: var(--bg-green);
+      box-shadow: 0 0 0 3px var(--shadow-light);
+    }
+    
+    .input-group-text {
+      background: var(--accent-green);
+      border: 2px solid #e5e7eb;
+      border-right: none;
+      color: var(--success-green);
+      font-weight: 600;
+      border-radius: 12px 0 0 12px;
+    }
+    
+    .input-group .form-control {
+      border-left: none;
+      border-radius: 0 12px 12px 0;
+    }
+    
+    .input-group:focus-within .input-group-text {
+      border-color: var(--primary-green);
+      background: var(--secondary-green);
+    }
+    
+    .btn-primary {
+      background: var(--gradient-primary);
+      border: none;
+      border-radius: 16px;
+      padding: 1rem 3rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 
+        0 10px 15px -3px var(--shadow-medium),
+        0 4px 6px -2px var(--shadow-light);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--primary-green-dark) 0%, #047857 100%);
+      transform: translateY(-2px);
+      box-shadow: 
+        0 20px 25px -5px var(--shadow-medium),
+        0 10px 10px -5px var(--shadow-light);
+    }
+    
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+    
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+    
+    .btn-primary:disabled {
+      background: var(--text-light);
+      transform: none;
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+    
+    .alert {
+      border: none;
+      border-radius: 16px;
+      font-weight: 500;
+      margin-top: 2rem;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .alert-success {
+      background: var(--bg-green);
+      color: var(--success-green);
+      border-left: 4px solid var(--primary-green);
+    }
+    
+    .alert-danger {
+      background: #fef2f2;
+      color: #991b1b;
+      border-left: 4px solid #ef4444;
+    }
+    
+    .required-asterisk {
+      color: #ef4444;
+      margin-left: 2px;
+      font-weight: 600;
+    }
+    
+    .spinner-border-sm {
+      width: 1.2rem;
+      height: 1.2rem;
+      margin-right: 0.5rem;
+      border-width: 2px;
+    }
+    
+    .invalid-feedback {
+      font-weight: 500;
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+    }
+    
+    .valid-feedback {
+      color: var(--success-green);
+      font-weight: 500;
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+    }
+    
+    .loading-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 24px;
+      z-index: 1000;
+    }
+    
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid var(--accent-green);
+      border-top: 4px solid var(--primary-green);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .form-submitted {
+      animation: formSuccess 0.6s ease-out forwards;
+    }
+    
+    @keyframes formSuccess {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+    
+    @media (max-width: 768px) {
+      .main-container {
+        padding: 1rem 0.75rem;
+      }
+      
+      .form-card {
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+        margin-bottom: 1rem;
+      }
+      
+      .form-title {
+        font-size: 2rem;
+      }
+      
+      .form-subtitle {
+        font-size: 1rem;
+      }
+      
+      .icon-badge {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+      }
+      
+      .icon-badge i {
+        font-size: 1.5rem;
+      }
+      
+      .btn-primary {
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+      }
+      
+      .form-control, .form-select {
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+      }
+      
+      .section-title {
+        font-size: 1rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .form-card {
+        padding: 1.5rem 1rem;
+        border-radius: 16px;
+      }
+      
+      .form-title {
+        font-size: 1.75rem;
+      }
+      
+      .header-section {
+        margin-bottom: 2rem;
+      }
+      
+      .icon-badge {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .icon-badge i {
+        font-size: 1.25rem;
+      }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text-dark: #f9fafb;
+        --text-muted: #d1d5db;
+        --white: #1f2937;
+        --bg-green: #064e3b;
+        --border-green: #065f46;
+      }
+      
+      body {
+        background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+      }
+      
+      .form-card {
+        background: #374151;
+        border-color: #4b5563;
+      }
+      
+      .form-control, .form-select {
+        background-color: #4b5563;
+        border-color: #6b7280;
+        color: #f9fafb;
+      }
+      
+      .form-control:focus, .form-select:focus {
+        background-color: #4b5563;
+      }
+    }
+    
+    .was-validated .form-control:invalid,
+    .was-validated .form-select:invalid {
+      border-color: #ef4444;
+      background-color: #fef2f2;
+    }
+    
+    .was-validated .form-control:valid,
+    .was-validated .form-select:valid {
+      border-color: var(--primary-green);
+      background-color: var(--bg-green);
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="form-card">
+      <div class="header-section">
+        <div class="icon-badge">
+          <i class="bi bi-person-fill-add"></i>
+        </div>
+        <h1 class="form-title">Application Form - Graphura</h1>
+        <p class="form-subtitle">Join our team - Fill out all required fields to submit your application. For more details: hr@graphura.in, +91 7378021327</p>
+      </div>
+      
+      
+      <form id="applicationForm" class="needs-validation" novalidate>
+        <div class="form-section">
+          <h3 class="section-title">
+            <i class="bi bi-person-circle me-2"></i>
+            Personal Information
+          </h3>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <label for="name" class="form-label">
+                <i class="bi bi-person"></i>
+                Full Name<span class="required-asterisk">*</span>
+              </label>
+              <input type="text" class="form-control" id="name" name="name" required 
+                     autocomplete="name" placeholder="Enter your full name">
+              <div class="invalid-feedback">Please provide your full name.</div>
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+            
+            <div class="col-md-4">
+              <label for="mobile" class="form-label">
+                <i class="bi bi-phone"></i>
+                Mobile Number<span class="required-asterisk">*</span>
+              </label>
+              <div class="input-group">
+                <span class="input-group-text">+91</span>
+                <input type="tel" class="form-control" id="mobile" name="mobile" required 
+                       autocomplete="tel" placeholder="10 digit number" maxlength="10" pattern="[0-9]{10}">
+              </div>
+              <div class="invalid-feedback">Please provide a valid 10-digit mobile number.</div>
+              <div class="valid-feedback">Mobile number is valid!</div>
+            </div>
+            
+            <div class="col-md-4">
+              <label for="email" class="form-label">
+                <i class="bi bi-envelope"></i>
+                Email Address<span class="required-asterisk">*</span>
+              </label>
+              <input type="email" class="form-control" id="email" name="email" required 
+                     autocomplete="email" placeholder="user@example.com">
+              <div class="invalid-feedback">Please provide a valid email address.</div>
+              <div class="valid-feedback">Email looks great!</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+              <label for="dob" class="form-label">
+                <i class="bi bi-calendar"></i>
+                Date of Birth<span class="required-asterisk">*</span>
+              </label>
+              <input type="date" class="form-control" id="dob" name="dob" required autocomplete="bday">
+              <div class="invalid-feedback">Please select your date of birth.</div>
+              <div class="valid-feedback">Date of birth confirmed!</div>
+            </div>
+            
+            <div class="col-md-4">
+              <label for="gender" class="form-label">
+                <i class="bi bi-person-badge"></i>
+                Gender<span class="required-asterisk">*</span>
+              </label>
+              <select class="form-select" id="gender" name="gender" required autocomplete="sex">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+              <div class="invalid-feedback">Please select your gender.</div>
+              <div class="valid-feedback">Gender selected!</div>
+            </div>
+
+        <div class="form-section">
+  <h3 class="section-title">
+    <i class="bi bi-card-text me-2"></i>
+    Address Details
+  </h3>
+  <div class="row g-4">
+    <!-- State -->
+   <div class="form-group style-border col-md-4">
+    <label for="state" class="form-label">
+        <i class="bi bi-geo-alt"></i>
+        State <span class="required-asterisk">*</span>
+    </label>
+    <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
+        <select class="form-select" name="state" id="state" required>
+            <option value="">Select your state</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
+            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+            <option value="Ladakh">Ladakh</option>
+            <option value="Lakshadweep">Lakshadweep</option>
+        </select>
+    </div>
+    <div class="invalid-feedback">Please select your state.</div>
+    <div class="valid-feedback">Looks good!</div>
+</div>
+
+
+    <!-- City -->
+    <div class="col-md-4">
+      <label for="city" class="form-label">
+        <i class="bi bi-building"></i>
+        City<span class="required-asterisk">*</span>
+      </label>
+      <input type="text" class="form-control" id="city" name="city" required 
+             autocomplete="address-level2" placeholder="Enter your city name">
+      <div class="invalid-feedback">Please provide your city name.</div>
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+
+    <!-- Full Address -->
+    <div class="col-md-4">
+      <label for="address" class="form-label">
+        <i class="bi bi-house"></i>
+        Full Address<span class="required-asterisk">*</span>
+      </label>
+      <input type="text" class="form-control" id="address" name="address" required 
+             autocomplete="address" placeholder="Enter your full address">
+      <div class="invalid-feedback">Please provide your full address.</div>
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+
+    <!-- Pin Code -->
+<div class="col-md-4">
+              <label for="pin" class="form-label">
+                <i class="bi bi-phone"></i>
+                Pin Code<span class="required-asterisk">*</span>
+              </label>
+              <div class="input-group">
+                <span class="input-group-text"></span>
+                <input type="text" class="form-control" id="pin" name="pin" required 
+                       autocomplete="postal-code" placeholder="6 digit pin-code" maxlength="6" pattern="[0-9]{6}">
+              </div>
+              <div class="invalid-feedback">Please provide a valid 6-digit pin code.</div>
+              <div class="valid-feedback">pin coder is valid!</div>
+            </div>
+
+       <div class="form-section">
+  <h3 class="section-title">
+    <i class="bi bi-briefcase me-2"></i>
+    Educational Details
+  </h3>
+  <div class="row g-4">
+    
+    <!-- College/University -->
+    <div class="col-md-4">
+      <label for="college" class="form-label">
+        <i class="bi bi-building"></i>
+        College/University Name<span class="required-asterisk">*</span>
+      </label>
+      <input type="text" class="form-control" id="college" name="college" required 
+             placeholder="Enter your college/university name">
+      <div class="invalid-feedback">Enter your college/university name.</div>
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+
+    <!-- Course -->
+    <div class="col-md-4">
+      <label for="course" class="form-label">
+        <i class="bi bi-journal-bookmark"></i>
+        Course Name<span class="required-asterisk">*</span>
+      </label>
+      <input type="text" class="form-control" id="course" name="course" required 
+             placeholder="Enter your course name">
+      <div class="invalid-feedback">Enter your course name.</div>
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+
+    <!-- Education Level -->
+    <div class="col-md-4">
+      <label for="graduation" class="form-label">
+        <i class="bi bi-mortarboard"></i>
+        Education Level<span class="required-asterisk">*</span>
+      </label>
+      <select class="form-select" id="graduation" name="graduation" required>
+        <option value="">Select Education Level</option>
+        <option value="10th Pass">10th Pass</option>
+        <option value="Intermediate">12th/Intermediate</option>
+        <option value="Degree">Graduate Degree</option>
+        <option value="Post Graduate">Post Graduate</option>
+      </select>
+      <div class="invalid-feedback">Please select your education level.</div>
+      <div class="valid-feedback">Education level confirmed!</div>
+    </div>
+
+  </div>
+</div>
+  <div class="form-section">
+    <h3 class="section-title">
+      <i class="bi bi-person-circle me-2"></i>
+      Internship Details
+    </h3>
+
+    <div class="row g-4">
+      <!-- Domain Name -->
+      <div class="col-md-4">
+        <label for="domain" class="form-label">
+          <i class="bi bi-mortarboard"></i>
+          Domain Name<span class="required-asterisk">*</span>
+        </label>
+        <select class="form-select" id="domain" name="domain" required autocomplete="domain">
+          <option value="">Select Domain Name</option>
+          <option value="Sales & Marketing">Sales & Marketing</option>
+          <option value="Online Outreaching">Online Outreach- Email</option>
+          <option value="Social Media Management">Social Media Management</option>
+          <option value="Digital Marketing">Digital Marketing</option>
+          <option value="Graphic Designing">Graphic Designing</option>
+          <option value="Video Editing">Video Editing</option>
+          <option value="Content Writing">Content Writing</option>
+          <option value="Finance">Finance</option>
+          <option value="UI/UX Designing">UI/UX Designing</option>
+          <option value="Data Analyst & Data Scientist">Data Analyst & Data Scientist</option>
+          <option value="Front-end Developer">Front-end Developer</option>
+          <option value="Back-end Developer">Back-end Developer</option>
+        </select>
+        <div class="invalid-feedback">Please select your domain name.</div>
+        <div class="valid-feedback">Domain name confirmed!</div>
+      </div>
+
+      <!-- Preferred Contact Method -->
+      <div class="col-md-4">
+        <label for="contactMethod" class="form-label">
+          <i class="bi bi-chat-dots"></i>
+          Preferred Contact Method<span class="required-asterisk">*</span>
+        </label>
+        <select class="form-select" id="contactMethod" name="contactMethod" required>
+          <option value="">Select Contact Method</option>
+          <option value="Phone">Phone Call</option>
+          <option value="WhatsApp or Email">WhatsApp or Email</option>
+          <option value="Both">Both (Phone & Digital)</option>
+        </select>
+        <div class="invalid-feedback">Please select your preferred contact method.</div>
+        <div class="valid-feedback">Contact method selected!</div>
+      </div>
+
+      <!-- CV/Resume URL -->
+      <div class="col-md-4">
+        <label for="url" class="form-label">
+          <i class="bi bi-link-45deg"></i>
+          Upload CV/Resume URL<span class="required-asterisk">*</span>
+        </label>
+        <input type="url" class="form-control" id="url" name="url" required 
+               placeholder="https://drive.google.com/resume">
+        <div class="invalid-feedback">Please provide a valid URL (must start with https://).</div>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <!-- Duration -->
+      <div class="col-md-4">
+        <label for="duration" class="form-label">
+          <i class="bi bi-clock"></i>
+          Duration<span class="required-asterisk">*</span>
+        </label>
+        <select class="form-select" id="duration" name="duration" required autocomplete="duration">
+          <option value="">Select Duration</option>
+          <option value="3 Months">3 Months</option>
+          <option value="4 Months">4 Months</option>
+          <option value="6 Months">6 Months</option>
+        </select>
+        <div class="invalid-feedback">Please select your duration.</div>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <!-- TPO Name -->
+      <div class="col-md-4">
+        <label for="tpoName" class="form-label">
+          <i class="bi bi-person-badge"></i>
+          TPO Name
+        </label>
+        <input type="text" class="form-control" id="tpoName" name="tpoName" 
+               autocomplete="organization" placeholder="Enter TPO name (optional)">
+        <div class="invalid-feedback">Please provide a valid name.</div>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <!-- TPO Email -->
+      <div class="col-md-4">
+        <label for="tpoemail" class="form-label">
+          <i class="bi bi-envelope"></i>
+          TPO Email
+        </label>
+        <input type="email" class="form-control" id="tpoEmail" name="tpoEmail" 
+               autocomplete="email" placeholder="Enter TPO email (optional)">
+        <div class="invalid-feedback">Please provide a valid email address.</div>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <!-- TPO Mobile -->
+      <div class="col-md-4">
+        <label for="tpoMobile" class="form-label">
+          <i class="bi bi-telephone"></i>
+          TPO Mobile Number
+        </label>
+        <div class="input-group">
+          <span class="input-group-text">+91</span>
+          <input type="tel" class="form-control" id="tpoMobile" name="tpoMobile" 
+                 autocomplete="tel" placeholder="Enter 10-digit mobile number (optional)" 
+                 maxlength="10" pattern="[0-9]{10}">
+        </div>
+        <div class="invalid-feedback">Please provide a valid 10-digit mobile number.</div>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+    </div> <!-- /.row -->
+  </div> <!-- /.form-section -->
+<div class="form-section">
+  <h3 class="section-title">
+    <i class="bi bi-clipboard-check me-2"></i>
+    Previous Internship Experience
+  </h3>
+  <div class="row g-4">
+    <!-- Question about previous internship experience -->
+    <div class="col-12">
+      <label class="form-label">Any previous internship experience?<span class="required-asterisk">*</span></label>
+      <div class="d-flex gap-4">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="previousExperience" id="expYes" value="Yes">
+          <label class="form-check-label" for="expYes">Yes</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="previousExperience" id="expNo" value="No" checked>
+          <label class="form-check-label" for="expNo">No</label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Textarea for internship description, initially hidden -->
+    <div class="col-12" id="previousExpDetails" style="display:none;">
+      <label for="expDescription" class="form-label">
+        <i class="bi bi-pencil-square"></i>
+        Briefly describe your responsibilities and tasks during the internship.
+      </label>
+      <textarea class="form-control" id="expDescription" name="expDescription" rows="4"></textarea>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Get references to the elements
+  const expYes = document.getElementById('expYes');
+  const expNo = document.getElementById('expNo');
+  const previousExpDetails = document.getElementById('previousExpDetails');
+  
+  // Add a change event listener to both radio buttons
+  document.querySelectorAll('input[name="previousExperience"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      // If the "Yes" radio button is checked, show the text area
+      if (expYes.checked) {
+        previousExpDetails.style.display = 'block';
+      } 
+      // Otherwise, hide it
+      else {
+        previousExpDetails.style.display = 'none';
+      }
+    });
+  });
+</script>
+        
+        <div class="row mt-5">
+          <div class="col-12 text-center">
+              <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                  <i class="bi bi-send me-2"></i>
+                  Submit Application
+              </button>
+          </div>
+        </div>
+      </form>
+      
+      <div id="messageDiv"></div>
+    </div>
+  </div>
+<p class="text-center text-muted small mb-0">
+  © 2025 Graphura India Private Limited. All rights reserved.
+</p>
+
+  
+
+<script>
+(function () {
+    'use strict'
+
+    // Fetch all forms with .needs-validation class
+    var forms = document.querySelectorAll('.needs-validation');
+
+    Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        }, false)
+    });
+})();
+
+(function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation');
+    Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        }, false)
+    });
+})();
+
+document.getElementById("applicationForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  event.stopPropagation();
+
+  let form = event.target;
+  if (!form.checkValidity()) {
+    form.classList.add("was-validated");
+    return;
+  }
+
+  let formData = new FormData(form);
+
+  fetch("https://script.google.com/macros/s/AKfycbwaKpVCsJi9RhmEJzCKHwQ90RK1juxzG3PD4DC_zv6FopLRjLIsNdvi94wwOaxQpPJnpg/exec", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.result === "success") {
+      window.location.href = "thank-you.html"; 
+    } else {
+      alert("Error: " + data.message);
+    }
+  })
+  .catch(error => {
+    alert("Submission failed. Please try again.");
+    console.error(error);
+  });
+});
+
+</script>
+
+</body>
+</html>
